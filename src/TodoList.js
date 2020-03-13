@@ -5,20 +5,28 @@ import List from '@material-ui/core/List'
 
 import Todo from './Todo'
 
-const TodoList = props => {
-    return (
-        <Paper>
-            <List>
-                {props.todos.map(t =>
-                    <>
-                        <Todo {...t} key={t.id} />
-                        <Divider />
-                    </>
-                )}
-            </List>
-        </Paper>
+const TodoList = ({ todos, removeTodo, toggleTodo, editTodo }) => {
 
+    return (
+        todos.length ?
+            <Paper>
+                <List>
+                    {todos.map((t, i) => (
+                        <React.Fragment key={t.id}>
+                            <Todo {...t}
+                                key={t.id}
+                                removeTodo={removeTodo}
+                                toggleTodo={toggleTodo}
+                                editTodo={editTodo}
+                            />
+                            {i < todos.length - 1 && <Divider />}
+                        </React.Fragment>
+                    ))}
+                </List>
+            </Paper>
+            : null
     )
+
 }
 
 export default TodoList;
