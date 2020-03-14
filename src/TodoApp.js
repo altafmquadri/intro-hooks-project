@@ -1,5 +1,4 @@
 import React from 'react';
-import useTodoState from './hooks/useTodoState'
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
 import Typography from '@material-ui/core/Typography'
@@ -8,12 +7,9 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Grid from '@material-ui/core/Grid'
 import { TodosProvider } from './contexts/todos.context'
-import {TodosContext} from './contexts/todos.context'
+
 
 const TodoApp = () => {
-    const initialTodos = JSON.parse(window.localStorage.getItem('todos') || '[]')
-    const { todos, addTodo, removeTodo, toggleTodo, editTodo } = useTodoState(initialTodos)
-
     return (
         <Paper style={{
             padding: 0,
