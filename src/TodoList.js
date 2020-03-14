@@ -8,7 +8,7 @@ import { TodosContext } from './contexts/todos.context';
 
 const TodoList = () => {
 
-    const { todos } = useContext(TodosContext)
+    const todos = useContext(TodosContext)
     return (
         todos.length ?
             <Paper>
